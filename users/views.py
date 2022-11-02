@@ -168,7 +168,7 @@ class RejectMentee(APIView):
 
     permission_classes = (IsAuthenticated, )
 
-    def delete(self, request):
+    def post(self, request):
         mentor = Mentor.objects.get(username=request.user.username)
         mentee = Mentee.objects.get(username=request.data['mentee_username'])
         mentee.pending_requests.remove(mentor)
@@ -187,7 +187,11 @@ class GenerateNotes(APIView):
         note = request.data['note']
         n = Notes.objects.create(mentor=mentor, notes=note)
         n.mentee.add(*mentees)
-        return Response({'Status', 'Success'}, status=status.HTTP_201_CREATED)
+        mentor = Mentor.objects.get(username=request.user.username)
+        notes = Notes.objects.filter(mentor=mentor, mentee__in=mentees)
+        serializer = NotesForMentorSerializer(notes, many=True)
+
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
     
     def get(self, request):
         user = CustomUser.objects.get(username=request.user.username)

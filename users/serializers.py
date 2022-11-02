@@ -14,9 +14,12 @@ class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
             data.update({'mentor_assigned' : serializer.data})
         if self.user.is_mentor:
             mentor = Mentor.objects.get(username=self.user.username)
-            serializer = PendingMessageSerializer(PendingMessage.objects.filter(mentor=mentor), many=True)
-            data.update({'pending_messages' : serializer.data})
+            pending_serializer = PendingMessageSerializer(PendingMessage.objects.filter(mentor=mentor), many=True)
+            mentee_assigned_serializer = MenteeInfoNotesSerializer(Mentee.objects.filter(mentor_assigned=mentor), many=True)
+            data.update({'pending_messages' : pending_serializer.data})
+            data.update({'mentee_assigned' : mentee_assigned_serializer.data})
         return data
+
 
 class MenteeInfoNotesSerializer(serializers.ModelSerializer):
     class Meta:
