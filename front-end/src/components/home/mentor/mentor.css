@@ -1,0 +1,191 @@
+.mentor-container {
+  position: relative;
+  font-family: "Montserrat", sans-serif;
+  margin: 0;
+}
+
+.section__title {
+  text-align: center;
+  position: relative;
+  padding: 25px;
+  max-width: 100%;
+  line-height: 1.5em;
+  color: whitesmoke;
+  background-color: rgb(66, 147, 253);
+}
+.section__title h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  font-family: "Poppins", "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+    sans-serif;
+}
+
+.btn-logout {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  align-items: center;
+  appearance: none;
+  background-image: radial-gradient(
+    100% 100% at 100% 0,
+    #990f02 0,
+    #e32428 100%
+  );
+  border: 0;
+  border-radius: 6px;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, rgba(58, 65, 111, 0.5) 0 -3px 0 inset;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: "JetBrains Mono", monospace;
+  height: 48px;
+  justify-content: center;
+  line-height: 1;
+  list-style: none;
+  overflow: hidden;
+  padding-left: 16px;
+  padding-right: 16px;
+  text-align: left;
+  text-decoration: none;
+  transition: box-shadow 0.15s, transform 0.15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  will-change: box-shadow, transform;
+  font-size: 18px;
+}
+
+.btn-logout:focus {
+  box-shadow: #d21404 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #d21404 0 -3px 0 inset;
+}
+
+.btn-logout:hover {
+  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #d21404 0 -3px 0 inset;
+}
+
+.btn-logout:active {
+  box-shadow: #d21404 0 3px 7px inset;
+}
+
+.content-wrapper {
+  height: 100vh;
+}
+
+.hamburger {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  cursor: pointer;
+  z-index: 2;
+}
+.hamburger .icon-ham {
+  font-size: 25px;
+  color: white;
+}
+.nav-offcanvas {
+  width: 300px;
+  background: linear-gradient(135deg, #ffffff 0%, whitesmoke 100%);
+  height: 100vh;
+  position: fixed;
+  overflow-x: auto;
+  z-index: 2000;
+  padding: 50px 0;
+  top: 0;
+  left: -300px;
+  transition: 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.nav-offcanvas .close {
+  position: absolute;
+  right: 10px;
+  top: 20px;
+  outline: 0;
+  opacity: 1;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+.nav-offcanvas .close .icon-close {
+  font-size: 15px;
+  color: black;
+  text-shadow: none;
+}
+.nav-offcanvas .close:hover {
+  transform: rotate(90deg);
+}
+
+.nav-offcanvas-menu ul {
+  margin-bottom: 0;
+  padding-left: 0;
+  list-style: none;
+}
+.nav-offcanvas-menu ul li button {
+  color: rgba(0, 0, 0, 0.756);
+  font-size: 16px;
+  font-weight: 300;
+
+  padding: 10px 40px;
+  display: block;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  position: relative;
+  z-index: 1;
+  transition: 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.05s;
+}
+.nav-offcanvas-menu ul li button:hover {
+  transform: translateX(10px);
+  cursor: pointer;
+}
+.nav-offcanvas.open {
+  left: 0;
+}
+
+.offcanvas-overlay {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.2);
+  z-index: 1999;
+  transition: 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  visibility: hidden;
+  opacity: 0;
+}
+
+.offcanvas-overlay.on {
+  opacity: 1;
+  visibility: visible;
+}
+
+.accordion {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+}
+
+.active {
+  background-color: #ccc;
+}
+
+.panel {
+  padding: 0 18px;
+  display: none;
+  background-color: white;
+  overflow: hidden;
+}
